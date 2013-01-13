@@ -1,0 +1,11 @@
+<?include('head.phtml')?>
+
+<a class="button" href="<?=$url('/cms/post/add')?>">Add new</a>
+
+<?foreach($vars->posts as $post):?>
+<div class="post">
+  <h2><a href="<?=$url('/cms/post/edit/' . $post->id)?>"><?=$post->title?></a></h2>
+</div>
+<?endforeach?>
+
+<?include('foot.phtml')?>

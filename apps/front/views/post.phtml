@@ -1,0 +1,12 @@
+<?include('head.phtml')?>
+
+<div class="post">
+  <h2><?=$vars->post->title?></h2>
+  <div class="postBody">
+    <?=$this->modules->markdown->render($vars->post->content)?>
+  </div>
+  <div class="clear"></div>
+  <a href="<?=$url('/')?>">&laquo; Back to list</a>
+</div>
+
+<?include('foot.phtml')?>

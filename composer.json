@@ -1,0 +1,33 @@
+{
+    "name": "etenil/ezblog",
+    "description": "A minimalist blogging engine",
+    "keywords": ["blog"],
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Guillaume 'Etenil' Pasquet",
+            "email": "boss@etenil.net",
+            "homepage": "http://blog.etenil.net"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "http://pikacode.com/etenil/assegai"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Etenil/redbean"
+        }
+    ],
+    "require": {
+        "etenil/assegai": "dev-default",
+        "dflydev/markdown": "v1.0.2",
+        "gabordemooij/redbean": "dev-RedBeanPHP3_3_X"
+    },
+    "require-dev": {
+        "etenil/assegai": "dev-default",
+        "dflydev/markdown": "v1.0.2",
+        "gabordemooij/redbean": "dev-RedBeanPHP3_3_X"
+    }
+}

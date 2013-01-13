@@ -1,0 +1,185 @@
+{
+    "hash": "a5ada2ff0b52c8453957548cf02aacd8",
+    "packages": [
+        {
+            "name": "dflydev/markdown",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dflydev/dflydev-markdown.git",
+                "reference": "v1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/dflydev/dflydev-markdown/zipball/v1.0.2",
+                "reference": "v1.0.2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "time": "2012-01-15 19:36:37",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "dflydev\\markdown": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "New BSD License"
+            ],
+            "authors": [
+                {
+                    "name": "Dragonfly Development Inc.",
+                    "email": "info@dflydev.com",
+                    "homepage": "http://dflydev.com"
+                },
+                {
+                    "name": "Beau Simensen",
+                    "email": "beau@dflydev.com",
+                    "homepage": "http://beausimensen.com"
+                },
+                {
+                    "name": "Michel Fortin",
+                    "homepage": "http://michelf.com"
+                },
+                {
+                    "name": "John Gruber",
+                    "homepage": "http://daringfireball.net"
+                }
+            ],
+            "description": "PHP Markdown & Extra",
+            "homepage": "http://github.com/dflydev/dflydev-markdown",
+            "keywords": [
+                "markdown"
+            ]
+        },
+        {
+            "name": "etenil/assegai",
+            "version": "dev-default",
+            "source": {
+                "type": "hg",
+                "url": "http://pikacode.com/etenil/assegai",
+                "reference": "db1a7a4a2fe9"
+            },
+            "require": {
+                "etenil/atlatl": "0.1",
+                "gabordemooij/redbean": "dev-RedBeanPHP3_3_X"
+            },
+            "time": "2013-01-13 15:50:27",
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/loader.php"
+                ]
+            },
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Guillaume 'Etenil' Pasquet",
+                    "email": "boss@etenil.net",
+                    "homepage": "http://blog.etenil.net"
+                }
+            ],
+            "description": "A full MVC framework for PHP.",
+            "homepage": "http://pikacode.com/etenil/atlatl",
+            "keywords": [
+                "framework"
+            ]
+        },
+        {
+            "name": "etenil/atlatl",
+            "version": "0.1",
+            "source": {
+                "type": "hg",
+                "url": "http://pikacode.com/etenil/atlatl",
+                "reference": "0.1"
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2013-01-13 00:34:26",
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Guillaume 'Etenil' Pasquet",
+                    "email": "boss@etenil.net",
+                    "homepage": "http://blog.etenil.net"
+                }
+            ],
+            "description": "A tiny and very simple micro-framework",
+            "homepage": "http://pikacode.com/etenil/atlatl",
+            "keywords": [
+                "framework",
+                "micro",
+                "gluephp"
+            ]
+        },
+        {
+            "name": "gabordemooij/redbean",
+            "version": "dev-RedBeanPHP3_3_X",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Etenil/redbean",
+                "reference": "448ef2c77a28bbdc319d70a2cb4cd6b3d8357b26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Etenil/redbean/zipball/448ef2c77a28bbdc319d70a2cb4cd6b3d8357b26",
+                "reference": "448ef2c77a28bbdc319d70a2cb4cd6b3d8357b26",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "time": "2013-01-13 15:25:44",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "RedBean_": ""
+                }
+            },
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Gabor de Mooij",
+                    "email": "gabordemooij@gmail.com",
+                    "homepage": "http://www.redbeanphp.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy ORM for PHP",
+            "homepage": "http://github.com/gabordemooij/redbean",
+            "keywords": [
+                "ORM",
+                "Object Relational Mapping"
+            ],
+            "support": {
+                "source": "https://github.com/Etenil/redbean/tree/RedBeanPHP3_3_X"
+            }
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "etenil/assegai": 20,
+        "gabordemooij/redbean": 20
+    }
+}

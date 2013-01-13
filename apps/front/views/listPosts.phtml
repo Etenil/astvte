@@ -1,0 +1,13 @@
+<?include('head.phtml')?>
+
+<?foreach($vars->posts as $post):?>
+<div class="post">
+  <h2><a href="<?=$url('/post/' . $post->id)?>"><?=$post->title?> &raquo;</a></h2>
+  <div class="postBody">
+    <?=$this->modules->markdown->render($vars->utils->excerpt($post->content))?>
+  </div>
+  <div class="clear"></div>
+</div>
+<?endforeach?>
+
+<?include('foot.phtml')?>
