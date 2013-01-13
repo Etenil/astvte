@@ -15,4 +15,4 @@ Configure your prefix (the bit of URL between your domain name and the place whe
 
 Then go ahead and edit __conf.php__ to get the right database connection and password.
 
-Navigate to http://<host>/<prefix>/cms, login and create a new post. Done.
+Navigate to http://*host*/*prefix*/cms, login and create a new post. Done.
