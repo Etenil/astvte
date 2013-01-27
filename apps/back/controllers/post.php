@@ -4,7 +4,7 @@ class Back_Controller_Post extends \assegai\Controller
 {
     function listAll()
     {
-        $posts = $this->model('Model_Post');
+        $posts = $this->model('Model_PostMapper');
         return $this->view('listPosts', array(
                                'posts' => $posts->all(),
                                ));
@@ -17,28 +17,35 @@ class Back_Controller_Post extends \assegai\Controller
 
     function add()
     {
-        $posts = $this->model('Model_Post');
-        $id = $posts->create($this->request->post('title'),
-                             $this->request->post('content'));
+        $posts = $this->model('Model_PostMapper');
+        $post = $posts->newPost();
+        $post->setName($this->request->post('name'))
+            ->setTitle($this->request->post('title'))
+            ->setContent($this->request->post('content'));
+
+        $posts->save($post);
 
         throw new \atlatl\HTTPRedirect($this->server->siteUrl('/cms'));
     }
 
     function edit($id)
     {
-        $posts = $this->model('Model_Post');
+        $posts = $this->model('Model_PostMapper');
         $post = $posts->load($id);
         return $this->view('newPost', array(
-                               'post' => $post,
-                               ));
+                'post' => $post->toArray(),
+            ));
     }
 
     function change($id)
     {
-        $posts = $this->model('Model_Post');
-        $posts->update($id,
-                       $this->request->post('title'),
-                       $this->request->post('content'));
+        $posts = $this->model('Model_PostMapper');
+        $post = $posts->newPost();
+        $post->setId($id)
+            ->setName($this->request->post('name'))
+            ->setTitle($this->request->post('title'))
+            ->setContent($this->request->post('content'));
+        $posts->save($post);
         throw new \atlatl\HTTPRedirect($this->server->siteUrl('/cms'));
     }
 

@@ -1,42 +1,90 @@
 <?php
 
-class Model_Post extends \assegai\Model
+class Model_Post
 {
-    function create($title, $content)
-    {
-        $post = $this->modules->redbean->dispense('post');
-        $post->title = $title;
-        $post->content = $content;
-        $post->date = time();
+    protected $_id;
+    protected $_name;
+    protected $_title;
+    protected $_content;
+    protected $_date;
 
-        return $this->save($post);
-    }
-
-    function update($id, $title, $content)
+    function __construct(array $data = null)
     {
-        $post = $this->load($id);
-        if(!$post) {
-            return false;
+        if($data) {
+            $this->fromArray($data);
         }
-        $post->title = $title;
-        $post->content = $content;
-        $post->date = time();
-        $this->save($post);
-        return $post->id;
     }
 
-    function load($id)
+    function getId()
     {
-        return $this->modules->redbean->load('post', $id);
+        return $this->_id;
     }
 
-    function save($post)
+    function setId($val)
     {
-        return $this->modules->redbean->store($post);
+        $this->_id = $val;
+        return $this;
     }
 
-    function all()
+    function getName()
     {
-        return $this->modules->redbean->findAll('post', ' ORDER BY date DESC ');
+        return $this->_name;
+    }
+
+    function setName($val)
+    {
+        $this->_name = $val;
+        return $this;
+    }
+
+    Function getTitle()
+    {
+        return $this->_title;
+    }
+
+    function setTitle($val)
+    {
+        $this->_title = $val;
+        return $this;
+    }
+
+    function getContent()
+    {
+        return $this->_content;
+    }
+
+    function setContent($val)
+    {
+        $this->_content = $val;
+        return $this;
+    }
+
+    function getDate()
+    {
+        return $this->_date;
+    }
+
+    function setDate($val)
+    {
+        $this->_date = $val;
+        return $this;
+    }
+
+    function toArray()
+    {
+        return array(
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'title' => $this->getTitle(),
+            'content' => $this->getContent(),
+            'date' => $this->getDate());
+    }
+
+    function fromArray($record)
+    {
+        $this->setId($record['id'])
+            ->setName($record['name'])
+            ->setTitle($record['title'])
+            ->setContent($record['content']);
     }
 }

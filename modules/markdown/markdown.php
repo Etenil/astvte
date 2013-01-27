@@ -11,7 +11,7 @@ class Module_Markdown extends \assegai\Module
 
     public function _init($options)
     {
-        if(isset($options['type']) && $optins['type'] == 'extra') {
+        if(isset($options['type']) && $options['type'] == 'extra') {
             $this->parser = new \dflydev\markdown\MarkdownExtraParser();
         } else {
             $this->parser = new \dflydev\markdown\MarkdownParser();

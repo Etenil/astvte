@@ -14,20 +14,14 @@
         {
             "type": "vcs",
             "url": "http://pikacode.com/etenil/assegai"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Etenil/redbean"
         }
     ],
     "require": {
         "etenil/assegai": "dev-default",
-        "dflydev/markdown": "v1.0.2",
-        "gabordemooij/redbean": "dev-RedBeanPHP3_3_X"
+        "dflydev/markdown": "v1.0.2"
     },
     "require-dev": {
         "etenil/assegai": "dev-default",
-        "dflydev/markdown": "v1.0.2",
-        "gabordemooij/redbean": "dev-RedBeanPHP3_3_X"
+        "dflydev/markdown": "v1.0.2"
     }
 }

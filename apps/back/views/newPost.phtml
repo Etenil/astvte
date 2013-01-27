@@ -5,6 +5,8 @@
 <?else:?>
 <form action="<?=$url('/cms/post/add')?>" method="post">
 <?endif?>
+  <label for="title">Name:</label>
+  <input type="text" name="name" value="<?=@$vars->post['name']?>"/>
   <label for="title">Title:</label>
   <input type="text" name="title" value="<?=@$vars->post['title']?>"/>
   <label for="content">Article:</label><textarea name="content"><?=@$vars->post['content']?></textarea>
