@@ -76,7 +76,7 @@ class FSStoreIndex
 
     protected function lookup($key, $value)
     {
-        if($value = '*') { // Special case, getting all data in the index for a key.
+        if('*' == $value) { // Special case, getting all data in the index for a key.
             $ids = array();
             foreach($this->index as $value) {
                 if(isset($value[$key])) {
