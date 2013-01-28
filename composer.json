@@ -18,10 +18,12 @@
     ],
     "require": {
         "etenil/assegai": "dev-default",
-        "dflydev/markdown": "v1.0.2"
+        "dflydev/markdown": "v1.0.2",
+        "suin/php-rss-writer": ">=1.0"
     },
     "require-dev": {
         "etenil/assegai": "dev-default",
-        "dflydev/markdown": "v1.0.2"
+        "dflydev/markdown": "v1.0.2",
+        "suin/php-rss-writer": ">=1.0"
     }
 }

@@ -21,4 +21,26 @@ class Front_Controller_Front extends \assegai\Controller
                 'post' => $post->current()
             ));
     }
+
+    function rss()
+    {
+        $pm = $this->model('Model_PostMapper');
+        $posts = $pm->all();
+
+        $feed = new \Suin\RSSWriter\Feed();
+        $channel = new \Suin\RSSWriter\Channel();
+        $channel->title($this->server->main->get('title'))
+            ->url($this->server->siteUrl(''))
+            ->appendTo($feed);
+
+        foreach($posts as $post) {
+            $item = new \Suin\RSSWriter\Item();
+            $item->title($post->getTitle())
+                ->description($this->modules->markdown->render($post->getContent()))
+                ->url($this->server->siteUrl('/post/' . $post->getName()))
+                ->appendTo($channel);
+        }
+
+        return new \assegai\Response((string)$feed, 200, 'application/rss+xml');
+    }
 }
