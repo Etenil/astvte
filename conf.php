@@ -30,4 +30,4 @@ $conf['markdown'] = array(
     'type' => 'extra',
     );
 
-$conf['password'] = 'admin';
+require(__DIR__ . '/blog.conf.php');
