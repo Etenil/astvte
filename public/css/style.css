@@ -1,5 +1,6 @@
 html {
-    font-family: Ubuntu,Helvetica,Arial,sans-serif;
+    font-family: Cantarell,Helvetica,Arial,sans-serif;
+    font-size: 20px;
     margin: 0;
     padding: 0;
 }
@@ -8,8 +9,8 @@ body {
     padding: 0;
 }
 #main {
-    width: 500px;
-    border: 5px solid black;
+    max-width: 800px;
+    border: none;
     margin: 10px auto 0;
     padding: 10px;
 }
@@ -59,14 +60,26 @@ form label {
     width: 100px;
 }
 form input, form textarea {
-    float: left;
-    width: 380px;
+    font-size: 20px;
+    display: block;
     padding: 5px;
-    border: 2px solid black;
+    border: none;
+    width: 100%;
 }
 form textarea {
     height: 30em;
 }
-form input[type=submit] {
-    width: 394px;
+
+form a.submit { /* Simulated button... */
+    display: block;
+    float: right;
+}
+
+form input[name="name"] {
+    font-family: monospace;
+    font-style: italic;
+}
+form input[name="title"] {
+    font-size: 150%;
+    font-weight: bold;
 }

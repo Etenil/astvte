@@ -12,3 +12,7 @@ $app['route'] = array(
     'GET:/cms/login' => 'Back_Controller_Login::login',
     'POST:/cms/login' => 'Back_Controller_Login::doLogin',
     );
+
+$app['modules'] => array(
+    'validator',
+);

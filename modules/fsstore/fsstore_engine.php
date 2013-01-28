@@ -76,10 +76,20 @@ class FSStoreIndex
 
     protected function lookup($key, $value)
     {
-        if(isset($this->index[$value])
+        if($value = '*') { // Special case, getting all data in the index for a key.
+            $ids = array();
+            foreach($this->index as $value) {
+                if(isset($value[$key])) {
+                    $ids = array_merge($ids, $value[$key]);
+                }
+            }
+            return array_values(array_unique($ids));
+        }
+        else if(isset($this->index[$value])
            && isset($this->index[$value][$key])) {
             return $this->index[$value][$key];
-        } else {
+        }
+        else {
             return array();
         }
     }
@@ -99,6 +109,7 @@ class FSStoreIndex
 }
 
 class FSStoreCursor implements Iterator {
+    protected $reverse = false;
     protected $position = 0;
     protected $collection;
     protected $ids;
@@ -116,7 +127,11 @@ class FSStoreCursor implements Iterator {
     }
 
     function rewind() {
-        $this->position = 0;
+        if($this->reverse) {
+            $this->position = count($this->ids) - 1;
+        } else {
+            $this->position = 0;
+        }
     }
 
     function current() {
@@ -129,15 +144,27 @@ class FSStoreCursor implements Iterator {
     }
 
     function key() {
-        return $this->ids[$this->position];
+        return $this->position;
     }
 
     function next() {
-        ++$this->position;
+        if($this->reverse) {
+            $this->position--;
+        } else {
+            $this->position++;
+        }
     }
 
     function valid() {
         return isset($this->ids[$this->position]);
+    }
+
+    /**
+     * Reverses the order of the cursor.
+     */
+    function desc() {
+        $this->reverse = true;
+        $this->rewind();
     }
 }
 
@@ -152,7 +179,7 @@ class FSStoreCollection
         $this->path = $path;
         /* We don't index the ids. The file system has a much better
          * indexing mechanism than this humble PHP script. */
-        $this->indexed_keys = array();
+        $this->indexed_keys = array('id');
         $this->index = new FSStoreIndex($this->path);
     }
 
@@ -187,24 +214,16 @@ class FSStoreCollection
     function find(array $spec = null)
     {
         if(!$spec) {
-            return $this->getAll();
+            $ids = $this->index->find(array('id' => '*'));
         } else {
             $ids = $this->index->find($spec);
-            if($ids) {
-                return new FSStoreCursor($this, $ids);
-            } else {
-                return false;
-            }
         }
-    }
 
-    /**
-     * Retrieves all data.
-     */
-    protected function getAll()
-    {
-        $ids = array_values(preg_replace('/\.json$/', '', preg_grep('/\.json$/', scandir($this->path))));
-        return new FSStoreCursor($this, $ids);
+        if($ids) {
+            return new FSStoreCursor($this, $ids);
+        } else {
+            return false;
+        }
     }
 
     protected function getPath($record)

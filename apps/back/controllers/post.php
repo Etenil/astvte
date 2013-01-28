@@ -17,6 +17,21 @@ class Back_Controller_Post extends \assegai\Controller
 
     function add()
     {
+        $v = new Module_Validator($this->request->allPost());
+        $v->required("You must supply a URL name.")
+            ->validate('name');
+        $v->required("You must give a title.")
+            ->validate('title');
+        $v->required("Please fill in some content.")
+            ->validate('content');
+
+        if($v->hasErrors()) {
+            return $this->view('newPost', array(
+                    'errors' => $v->getAllErrors(),
+                    'post' => $this->request->allPost(),
+                ));
+        }
+
         $posts = $this->model('Model_PostMapper');
         $post = $posts->newPost();
         $post->setName($this->request->post('name'))

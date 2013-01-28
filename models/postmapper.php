@@ -26,6 +26,7 @@ class Model_PostMapper extends \assegai\Model
         $cursor->setMapper(function($record) {
                 return new Model_Post($record);
             });
+        $cursor->desc();
         return $cursor;
     }
 
@@ -35,6 +36,7 @@ class Model_PostMapper extends \assegai\Model
         $cursor->setMapper(function($record) {
                 return new Model_Post($record);
             });
+        $cursor->desc();
         return $cursor;
     }
 

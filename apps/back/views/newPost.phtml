@@ -5,14 +5,16 @@
 <?else:?>
 <form action="<?=$url('/cms/post/add')?>" method="post">
 <?endif?>
-  <label for="title">Name:</label>
-  <input type="text" name="name" value="<?=@$vars->post['name']?>"/>
-  <label for="title">Title:</label>
-  <input type="text" name="title" value="<?=@$vars->post['title']?>"/>
-  <label for="content">Article:</label><textarea name="content"><?=@$vars->post['content']?></textarea>
-  <label>&nbsp;</label><input type="submit" value="Save"/>
+  <a href="<?=$url('/cms')?>">&laquo; Back to list</a><a class="submit" href="#">Save &raquo</a>
+  <div class="clear"></div>
+  <br>
+  <input type="text" name="name"
+         placeholder="Url chunk here"
+         value="<?=@$vars->post['name']?>"/>
+  <input type="text" name="title"
+         placeholder="Title here"
+         value="<?=@$vars->post['title']?>"/>
+  <textarea name="content" placeholder="Article here"><?=@$vars->post['content']?></textarea>
 </form>
-
-<a href="<?=$url('/cms')?>">&laquo; Back to list</a>
 
 <?include('foot.phtml')?>
