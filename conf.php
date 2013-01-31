@@ -13,18 +13,13 @@ $conf['apps'] = array(
     );
 
 $conf['modules'] = array(
-    'fsstore',
-    'markdown'
-    );
-
-$conf['fsstore'] = array(
-    'main' => __DIR__ . '/data',
+    'markdown',
+    'redbean'
     );
 
 $conf['redbean'] = array(
-    'dsn' => 'mysql:host=localhost;dbname=ezblog',
-    'user' => 'root',
-    'pass' => 'gandalf');
+    'dsn' => 'sqlite:' . __DIR__ . '/db.sqlite',
+    );
 
 $conf['markdown'] = array(
     'type' => 'extra',
