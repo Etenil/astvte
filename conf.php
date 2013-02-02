@@ -18,7 +18,9 @@ $conf['modules'] = array(
     );
 
 $conf['redbean'] = array(
-    'dsn' => 'sqlite:' . __DIR__ . '/db.sqlite',
+    'dsn' => 'mysql:host=localhost;dbname=ezblog',
+    'user' => 'ezblog',
+    'pass' => 'ezblog',
     );
 
 $conf['markdown'] = array(

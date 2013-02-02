@@ -4,7 +4,7 @@ class Back_Controller_Post extends \assegai\Controller
 {
     function listAll()
     {
-        $posts = $this->model('Model_PostMapper');
+        $posts = $this->model('Model_Post_Mapper');
         return $this->view('listPosts', array(
                                'posts' => $posts->all(),
                                ));
@@ -32,7 +32,7 @@ class Back_Controller_Post extends \assegai\Controller
                 ));
         }
 
-        $posts = $this->model('Model_PostMapper');
+        $posts = $this->model('Model_Post_Mapper');
         $post = $posts->newPost();
         $post->setName($this->request->post('name'))
             ->setTitle($this->request->post('title'))
@@ -45,7 +45,7 @@ class Back_Controller_Post extends \assegai\Controller
 
     function edit($id)
     {
-        $posts = $this->model('Model_PostMapper');
+        $posts = $this->model('Model_Post_Mapper');
         $post = $posts->load($id);
         return $this->view('newPost', array(
                 'post' => $post->toArray(),
@@ -54,7 +54,7 @@ class Back_Controller_Post extends \assegai\Controller
 
     function change($id)
     {
-        $posts = $this->model('Model_PostMapper');
+        $posts = $this->model('Model_Post_Mapper');
         $post = $posts->newPost();
         $post->setId($id)
             ->setName($this->request->post('name'))

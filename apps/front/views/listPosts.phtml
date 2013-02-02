@@ -1,13 +1,17 @@
 <?include('head.phtml')?>
 
-<?foreach($vars->posts as $post):?>
-<div class="post">
-  <h2><a href="<?=$url('/post/' . $post->getName())?>"><?=$post->getTitle()?> &raquo;</a></h2>
-  <div class="postBody">
-    <?=$this->modules->markdown->render($vars->utils->excerpt($post->getContent()))?>
-  </div>
-  <div class="clear"></div>
-</div>
-<?endforeach?>
+<?if($vars->posts):?>
+  <?foreach($vars->posts as $post):?>
+    <div class="post">
+      <h2><a href="<?=$url('/post/' . $post->getName())?>"><?=$post->getTitle()?> &raquo;</a></h2>
+      <div class="postBody">
+        <?=$this->modules->markdown->render($vars->utils->excerpt($post->getContent()))?>
+      </div>
+      <div class="clear"></div>
+    </div>
+  <?endforeach?>
+<?else:?>
+    <p>No posts yet!</p>
+<?endif?>
 
 <?include('foot.phtml')?>

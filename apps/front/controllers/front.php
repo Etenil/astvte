@@ -4,7 +4,7 @@ class Front_Controller_Front extends \assegai\Controller
 {
     function homepage()
     {
-        $posts = $this->model('Model_PostMapper');
+        $posts = $this->model('Model_Post_Mapper');
         return $this->view('listPosts', array(
                 'title' => $this->server->main->get('title'),
                 'posts' => $posts->all(),
@@ -14,17 +14,17 @@ class Front_Controller_Front extends \assegai\Controller
 
     function post($name)
     {
-        $posts = $this->model('Model_PostMapper');
+        $posts = $this->model('Model_Post_Mapper');
         $post = $posts->getName($name);
         return $this->view('post', array(
                 'title' => $this->server->main->get('title'),
-                'post' => $post->current()
+                'post' => $post
             ));
     }
 
     function rss()
     {
-        $pm = $this->model('Model_PostMapper');
+        $pm = $this->model('Model_Post_Mapper');
         $posts = $pm->all();
 
         $feed = new \Suin\RSSWriter\Feed();
