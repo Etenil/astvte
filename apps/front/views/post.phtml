@@ -2,6 +2,7 @@
 
 <div class="post">
   <h2><?=$vars->post->getTitle()?></h2>
+  <h3 class="date"><?=$vars->post->getHumanDate()?></h3>
   <div class="postBody">
     <?=$this->modules->markdown->render($vars->post->getContent())?>
   </div>

@@ -4,7 +4,7 @@
 <?if(true || $vars->posts):?>
   <?foreach($vars->posts as $post):?>
     <div class="post">
-      <h2><a href="<?=$url('/cms/post/edit/' . $post->getId())?>"><?=$post->getTitle()?></a></h2>
+      <h2><a href="<?=$url('/cms/post/edit/' . $post->getId())?>"><?=$post->getTitle()?> <span class="admindate"><?=$post->getHumanDate()?></span> &raquo;</a></h2>
     </div>
   <?endforeach?>
 <?else:?>

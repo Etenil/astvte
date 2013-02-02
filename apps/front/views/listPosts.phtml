@@ -4,6 +4,7 @@
   <?foreach($vars->posts as $post):?>
     <div class="post">
       <h2><a href="<?=$url('/post/' . $post->getName())?>"><?=$post->getTitle()?> &raquo;</a></h2>
+      <h3 class="date"><?=$post->getHumanDate()?></h3>
       <div class="postBody">
         <?=$this->modules->markdown->render($vars->utils->excerpt($post->getContent()))?>
       </div>

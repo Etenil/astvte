@@ -33,6 +33,7 @@ class Model_Post_Mapper extends \assegai\Model
     
     function save(Model_Post_Post $post)
     {
+        if(!$post->getDate()) $post->setDate(time());
         $rbpost = $this->mapPostToRB($post);
         $post->setId(RedBean_Facade::store($rbpost));
         return $post->getId();

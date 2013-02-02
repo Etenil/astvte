@@ -52,6 +52,11 @@ class Model_Post_Post
         return $this;
     }
 
+    function getHumanDate()
+    {
+        return date('Y-m-d', $this->getDate());
+    }
+        
     function getDate()
     {
         return $this->_date;
