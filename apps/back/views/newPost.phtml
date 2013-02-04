@@ -8,6 +8,8 @@
   <a href="<?=$url('/cms')?>">&laquo; Back to list</a><a class="submit" href="#">Save &raquo</a>
   <div class="clear"></div>
   <br>
+  <input type="checkbox" name="published" id="published"
+         <?=(@$vars->post['published']? 'checked="checked"' : '')?> /><label class="checkbox" for="published">Published</label>
   <input type="text" name="name"
          placeholder="Url chunk here"
          value="<?=@$vars->post['name']?>"/>

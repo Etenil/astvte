@@ -8,6 +8,7 @@ trait RBPostMapper {
             ->setName($rbpost->name)
             ->setTitle($rbpost->title)
             ->setContent($rbpost->content)
+            ->setPublished($rbpost->published)
             ->setDate($rbpost->date);
         return $post;
     }
@@ -22,6 +23,7 @@ trait RBPostMapper {
         $rbpost->name = $post->getName();
         $rbpost->title = $post->getTitle();
         $rbpost->content = $post->getContent();
+        $rbpost->published = $post->getPublished();
         $rbpost->date = $post->getDate();
         return $rbpost;
     }
@@ -57,9 +59,19 @@ class Model_Post_Mapper extends \assegai\Model
         return $this->mapRBToPost($data);
     }
 
+    /**
+     * Loads all the published posts.
+     */
+    function allPublished()
+    {
+        $data = RedBean_Facade::find('post', 'published = 1 ORDER BY date DESC');
+        if(!$data) return false;
+        return new Model_Post_Collection($data);
+    }
+    
     function all()
     {
-        $data = RedBean_Facade::findAll('post');
+        $data = RedBean_Facade::findAll('post', 'ORDER BY date DESC');
         if(!$data) return false;
         return new Model_Post_Collection($data);
     }

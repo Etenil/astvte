@@ -6,6 +6,7 @@ class Model_Post_Post
     protected $_name;
     protected $_title;
     protected $_content;
+    protected $_published = false;
     protected $_date;
 
     function getId()
@@ -30,7 +31,7 @@ class Model_Post_Post
         return $this;
     }
 
-    Function getTitle()
+    function getTitle()
     {
         return $this->_title;
     }
@@ -56,7 +57,18 @@ class Model_Post_Post
     {
         return date('Y-m-d', $this->getDate());
     }
-        
+
+    function getPublished()
+    {
+        return $this->_published;
+    }
+
+    function setPublished($val)
+    {
+        $this->_published = (bool)$val;
+        return $this;
+    }
+
     function getDate()
     {
         return $this->_date;
@@ -75,14 +87,7 @@ class Model_Post_Post
             'name' => $this->getName(),
             'title' => $this->getTitle(),
             'content' => $this->getContent(),
+            'published' => $this->getPublished(),
             'date' => $this->getDate());
-    }
-
-    function fromArray($record)
-    {
-        $this->setId($record['id'])
-            ->setName($record['name'])
-            ->setTitle($record['title'])
-            ->setContent($record['content']);
     }
 }

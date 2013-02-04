@@ -81,6 +81,12 @@ form input, form textarea {
 form textarea {
     height: 30em;
 }
+form input[type=checkbox] {
+    display:inline;
+}
+label.checkbox {
+    float: none;
+}
 
 form a.submit { /* Simulated button... */
     display: block;

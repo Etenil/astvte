@@ -7,7 +7,7 @@ class Front_Controller_Front extends \assegai\Controller
         $posts = $this->model('Model_Post_Mapper');
         return $this->view('listPosts', array(
                 'title' => $this->server->main->get('title'),
-                'posts' => $posts->all(),
+                'posts' => $posts->allPublished(),
                 'utils' => $this->model('Model_Utils'),
             ));
     }
@@ -25,7 +25,7 @@ class Front_Controller_Front extends \assegai\Controller
     function rss()
     {
         $pm = $this->model('Model_Post_Mapper');
-        $posts = $pm->all();
+        $posts = $pm->allPublished();
 
         $feed = new \Suin\RSSWriter\Feed();
         $channel = new \Suin\RSSWriter\Channel();
@@ -38,6 +38,7 @@ class Front_Controller_Front extends \assegai\Controller
             $item->title($post->getTitle())
                 ->description($this->modules->markdown->render($post->getContent()))
                 ->url($this->server->siteUrl('/post/' . $post->getName()))
+                ->pubDate($post->getDate())
                 ->appendTo($channel);
         }
 
