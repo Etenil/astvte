@@ -1,6 +1,7 @@
 <?php
 
-trait RBPostMapper {
+class Model_Post_Mapper extends \assegai\Model
+{
     protected function mapRBToPost($rbpost)
     {
         $post = new Model_Post_Post();
@@ -27,11 +28,6 @@ trait RBPostMapper {
         $rbpost->date = $post->getDate();
         return $rbpost;
     }
-}
-
-class Model_Post_Mapper extends \assegai\Model
-{
-    use RBPostMapper;
     
     function save(Model_Post_Post $post)
     {

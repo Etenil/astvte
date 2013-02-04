@@ -2,10 +2,35 @@
 
 class Model_Post_Collection implements Iterator
 {
-    use RBPostMapper;
-    
     protected $position;
     protected $payload;
+
+    protected function mapRBToPost($rbpost)
+    {
+        $post = new Model_Post_Post();
+        $post->setId($rbpost->id)
+            ->setName($rbpost->name)
+            ->setTitle($rbpost->title)
+            ->setContent($rbpost->content)
+            ->setPublished($rbpost->published)
+            ->setDate($rbpost->date);
+        return $post;
+    }
+
+    protected function mapPostToRB($post)
+    {
+        if($post->getId()) {
+            $rbpost = RedBean_Facade::load('post', $post->getId());
+        } else {
+            $rbpost = RedBean_Facade::dispense('post');
+        }
+        $rbpost->name = $post->getName();
+        $rbpost->title = $post->getTitle();
+        $rbpost->content = $post->getContent();
+        $rbpost->published = $post->getPublished();
+        $rbpost->date = $post->getDate();
+        return $rbpost;
+    }
 
     function __construct($data)
     {
