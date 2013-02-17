@@ -36,7 +36,7 @@ class Back_Controller_Post extends \assegai\Controller
         $post = $posts->newPost();
         $post->setName($this->request->post('name'))
             ->setTitle($this->request->post('title'))
-            ->setContent($this->request->post('content'))
+            ->setContent($this->request->unsafePost('content'))
             ->setPublished($this->request->post('published'));
 
         $posts->save($post);
@@ -76,7 +76,7 @@ class Back_Controller_Post extends \assegai\Controller
         $post = $posts->load($id);
         $post->setName($this->request->post('name'))
             ->setTitle($this->request->post('title'))
-            ->setContent($this->request->post('content'))
+            ->setContent($this->request->unsafePost('content'))
             ->setPublished($this->request->post('published'));;
         $posts->save($post);
         throw new \atlatl\HTTPRedirect($this->server->siteUrl('/cms'));
