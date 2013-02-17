@@ -1,0 +1,21 @@
+<?php
+
+// This file contains the configuration options for the blog.
+// Rename it to 'blog.conf.php' and edit the options to match
+// your requirements.
+
+// Site prefix. Put the bit of URL before the "index.php" here.
+$conf['prefix'] = '/';
+
+// Database configuration.
+$conf['redbean'] = array(
+    'dsn' => 'mysql:host=localhost;dbname=ezblog',
+    'user' => 'ezblog',
+    'pass' => 'ezblog',
+    );
+
+// Administrator's password.
+$conf['password'] = 'admin';
+
+// Blog title.
+$conf['title'] = 'My blog';
