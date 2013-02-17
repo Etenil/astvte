@@ -35,7 +35,7 @@ class Front_Controller_Front extends \assegai\Controller
 
         foreach($posts as $post) {
             $item = new \Suin\RSSWriter\Item();
-            $item->title(html_entity_decode($post->getTitle()))
+            $item->title(html_entity_decode($post->getTitle(), ENT_COMPAT | ENT_HTML401, 'UTF-8'))
                 ->description($this->modules->markdown->render($post->getContent()))
                 ->url($this->server->siteUrl('/post/' . $post->getName()))
                 ->pubDate($post->getDate())
