@@ -9,9 +9,9 @@ $conf['prefix'] = '/';
 
 // Database configuration.
 $conf['redbean'] = array(
-    'dsn' => 'mysql:host=localhost;dbname=ezblog',
-    'user' => 'ezblog',
-    'pass' => 'ezblog',
+    'dsn' => 'mysql:host=localhost;dbname=astvte',
+    'user' => 'astvte',
+    'pass' => 'astvte',
     );
 
 // Administrator's password.

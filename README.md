@@ -1,7 +1,7 @@
-EZBlog
+ASTVTE
 ======
 
-EZBlog is a very simple and minimal blogging engine for PHP.
+Astvte is a very simple and minimal blogging engine for PHP.
 
 Installing
 ----------

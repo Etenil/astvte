@@ -63,9 +63,14 @@ h3.date { /* Post date */
 #main .post {
     border-top: 2px solid black;
     margin-bottom: 0.5em;
+    text-align: justify;
 }
 #main .post:first-child {
     border-top: none;
+}
+#main .post code {
+    margin-left: 2em;
+    font-size: 80%;
 }
 
 /* Admin forms */
