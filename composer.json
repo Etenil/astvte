@@ -11,12 +11,7 @@
         }
     ],
     "require": {
-        "etenil/assegai": "1.x",
-        "dflydev/markdown": "v1.0.2",
-        "suin/php-rss-writer": ">=1.0"
-    },
-    "require-dev": {
-        "etenil/assegai": "1.x",
+        "etenil/assegai": "2.*",
         "dflydev/markdown": "v1.0.2",
         "suin/php-rss-writer": ">=1.0"
     }
