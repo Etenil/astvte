@@ -1,20 +1,22 @@
 <?php
 
-class Front_Controller_Front extends \assegai\Controller
+namespace astvte\controllers;
+
+class Front extends \assegai\Controller
 {
     function homepage()
-    {
-        $posts = $this->model('Model_Post_Mapper');
+    {	
+        $posts = $this->model('astvte\models\posts\Mapper');
         return $this->view('listPosts', array(
                 'title' => $this->server->main->get('title'),
                 'posts' => $posts->allPublished(),
-                'utils' => $this->model('Model_Utils'),
+                'utils' => $this->model('astvte\models\Utils'),
             ));
     }
 
     function post($name)
     {
-        $posts = $this->model('Model_Post_Mapper');
+        $posts = $this->model('astvte\models\posts\Mapper');
         $post = $posts->getName($name);
         return $this->view('post', array(
                 'title' => $this->server->main->get('title'),
@@ -24,7 +26,7 @@ class Front_Controller_Front extends \assegai\Controller
 
     function rss()
     {
-        $pm = $this->model('Model_Post_Mapper');
+        $pm = $this->model('astvte\models\posts\Mapper');
         $posts = $pm->allPublished();
 
         $feed = new \Suin\RSSWriter\Feed();

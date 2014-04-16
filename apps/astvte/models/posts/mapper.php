@@ -1,6 +1,8 @@
 <?php
 
-class Model_Post_Mapper extends \assegai\Model
+namespace astvte\models\posts;
+
+class Mapper extends \assegai\Model
 {
     protected function mapRBToPost($rbpost)
     {
@@ -17,9 +19,9 @@ class Model_Post_Mapper extends \assegai\Model
     protected function mapPostToRB($post)
     {
         if($post->getId()) {
-            $rbpost = RedBean_Facade::load('post', $post->getId());
+            $rbpost = $this->modules->redbean->load('post', $post->getId());
         } else {
-            $rbpost = RedBean_Facade::dispense('post');
+            $rbpost = $this->modules->redbean->dispense('post');
         }
         $rbpost->name = $post->getName();
         $rbpost->title = $post->getTitle();
@@ -33,13 +35,13 @@ class Model_Post_Mapper extends \assegai\Model
     {
         if(!$post->getDate()) $post->setDate(time());
         $rbpost = $this->mapPostToRB($post);
-        $post->setId(RedBean_Facade::store($rbpost));
+        $post->setId($this->modules->redbean->store($rbpost));
         return $post->getId();
     }
 
     function load($id)
     {
-        $data = RedBean_Facade::load('post', $id);
+        $data = $this->modules->redbean->load('post', $id);
         
         if(!$data) return false;
 
@@ -48,7 +50,7 @@ class Model_Post_Mapper extends \assegai\Model
 
     function getName($name)
     {
-        $data = RedBean_Facade::findOne('post', 'name = ?', array($name));
+        $data = $this->modules->redbean->findOne('post', 'name = ?', array($name));
 
         if(!$data) return false;
         
@@ -60,14 +62,14 @@ class Model_Post_Mapper extends \assegai\Model
      */
     function allPublished()
     {
-        $data = RedBean_Facade::find('post', 'published = 1 ORDER BY date DESC');
+        $data = $this->modules->redbean->find('post', 'published = 1 ORDER BY date DESC');
         if(!$data) return false;
         return new Model_Post_Collection($data);
     }
     
     function all()
     {
-        $data = RedBean_Facade::findAll('post', 'ORDER BY date DESC');
+        $data = $this->modules->redbean->findAll('post', 'ORDER BY date DESC');
         if(!$data) return false;
         return new Model_Post_Collection($data);
     }

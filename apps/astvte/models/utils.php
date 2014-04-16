@@ -1,6 +1,8 @@
 <?php
 
-class Model_Utils extends \assegai\Model
+namespace astvte\models;
+
+class Utils extends \assegai\Model
 {
     function excerpt($text)
     {

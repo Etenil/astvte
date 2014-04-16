@@ -1,6 +1,8 @@
 <?php
 
-class Back_Controller_Login extends \assegai\Controller
+namespace astvte\controllers;
+
+class Login extends \assegai\Controller
 {
     function login()
     {

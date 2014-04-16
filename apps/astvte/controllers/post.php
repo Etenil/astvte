@@ -1,6 +1,8 @@
 <?php
 
-class Back_Controller_Post extends \assegai\Controller
+namespace astvte\controllers;
+
+class Post extends \assegai\Controller
 {
     function listAll()
     {

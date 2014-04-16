@@ -1,6 +1,8 @@
 <?php
 
-class Model_Post_Post
+namespace astvte\models\posts;
+
+class Post
 {
     protected $_id;
     protected $_name;

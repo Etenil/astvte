@@ -4,18 +4,15 @@
 // Rename it to 'blog.conf.php' and edit the options to match
 // your requirements.
 
-// Site prefix. Put the bit of URL before the "index.php" here.
-$conf['prefix'] = '/';
+// Administrator's password.
+$app['password'] = 'admin';
+
+// Blog title.
+$app['title'] = 'My blog';
 
 // Database configuration.
-$conf['redbean'] = array(
+$app['redbean'] = array(
     'dsn' => 'mysql:host=localhost;dbname=astvte',
     'user' => 'astvte',
     'pass' => 'astvte',
-    );
-
-// Administrator's password.
-$conf['password'] = 'admin';
-
-// Blog title.
-$conf['title'] = 'My blog';
+);

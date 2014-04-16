@@ -12,6 +12,7 @@
     ],
     "require": {
         "etenil/assegai": "2.*",
+		"gabordemooij/redbean": "v3.5.1",
         "dflydev/markdown": "v1.0.2",
         "suin/php-rss-writer": ">=1.0"
     }

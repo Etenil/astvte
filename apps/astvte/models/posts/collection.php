@@ -1,6 +1,8 @@
 <?php
 
-class Model_Post_Collection implements Iterator
+namespace astvte\models\posts;
+
+class Collection implements Iterator
 {
     protected $position;
     protected $payload;
