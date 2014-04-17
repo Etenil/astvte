@@ -2,14 +2,14 @@
 
 namespace astvte\models\posts;
 
-class Collection implements Iterator
+class Collection implements \Iterator
 {
     protected $position;
     protected $payload;
 
     protected function mapRBToPost($rbpost)
     {
-        $post = new Model_Post_Post();
+        $post = new Post();
         $post->setId($rbpost->id)
             ->setName($rbpost->name)
             ->setTitle($rbpost->title)

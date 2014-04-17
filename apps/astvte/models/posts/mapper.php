@@ -6,7 +6,7 @@ class Mapper extends \assegai\Model
 {
     protected function mapRBToPost($rbpost)
     {
-        $post = new Model_Post_Post();
+        $post = new Post();
         $post->setId($rbpost->id)
             ->setName($rbpost->name)
             ->setTitle($rbpost->title)
@@ -31,7 +31,7 @@ class Mapper extends \assegai\Model
         return $rbpost;
     }
     
-    function save(Model_Post_Post $post)
+    function save(Post $post)
     {
         if(!$post->getDate()) $post->setDate(time());
         $rbpost = $this->mapPostToRB($post);
@@ -64,14 +64,14 @@ class Mapper extends \assegai\Model
     {
         $data = $this->modules->redbean->find('post', 'published = 1 ORDER BY date DESC');
         if(!$data) return false;
-        return new Model_Post_Collection($data);
+        return new Collection($data);
     }
     
     function all()
     {
         $data = $this->modules->redbean->findAll('post', 'ORDER BY date DESC');
         if(!$data) return false;
-        return new Model_Post_Collection($data);
+        return new Collection($data);
     }
 
     /**
@@ -79,6 +79,6 @@ class Mapper extends \assegai\Model
      */
     function newPost()
     {
-        return new Model_Post_Post();
+        return new Post();
     }
 }

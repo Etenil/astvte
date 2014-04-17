@@ -24,4 +24,6 @@ $app['modules'] = array(
 	'markdown',
 );
 
+$app['use_session'] = true;
+
 require('blog.conf.php');

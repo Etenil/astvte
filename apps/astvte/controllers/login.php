@@ -6,18 +6,16 @@ class Login extends \assegai\Controller
 {
     function login()
     {
-        return $this->view('login');
+        return $this->view('admin/login');
     }
 
     function doLogin()
     {
-        if($this->request->post('password') == $this->server->main->get('password')) {
-            $resp = new \assegai\Response();
-            $resp->setSession('user', 'admin');
-            $resp->redirect($this->server->siteUrl('/cms'));
-            return $resp;
+        if($this->request->post('password') == $this->server->app->get('password')) {
+			$this->request->setSession('user', 'admin');
+            return $this->redirect($this->server->siteUrl('/cms'));
         } else {
-            throw new \atlatl\HTTPRedirect($this->server->siteUrl('/cms/login'));
+            return $this->redirect($this->server->siteUrl('/cms/login'));
         }
     }
 }
